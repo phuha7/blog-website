@@ -8,11 +8,7 @@ class PostingForm(ModelForm):
         model = Post
         exclude = ['user','created_at',]
         widgets = {
-            "body" : Textarea(attrs={
-                'cols': 40, 
-                'rows':10,
-                'font': 'sans-sefif'})
-        }
+            "body" : Textarea(attrs={'cols': 40, 'rows':10})}
 
 class RegistrationForm(Form):
     username = CharField(max_length=20, required=True, widget=TextInput(attrs={'placeholder': 'username'}))
