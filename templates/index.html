@@ -1,0 +1,17 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+<h1 class="headline">Welcome to MyBlog, <br>Login or Register and Start Your Own Blog!</h1>
+<div class="login-page">
+    <div class="form">
+      <form method="POST" action="/" id="login-form">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="username"/>
+        <input type="password" name="password" placeholder="password"/>
+        {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor %}
+        <button type="submit" form="login-form" value="Submit">login</button>
+        <p class="message">Not registered? <a href="register">Create an account</a></p>
+      </form>
+    </div>
+  </div>

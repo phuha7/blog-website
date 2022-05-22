@@ -1,0 +1,25 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+<div class="login-page">
+    <div class="form">
+      <form method="POST" action="register" id="login-form">
+        {% csrf_token %}
+        {% for field in form %}
+        {{field}}
+        {% endfor %}
+
+        {% for field, errors in form.errors.items %}
+        {% for error in errors %}
+        <p>{{error}}</p>
+        {% endfor %}
+        {% endfor %}
+
+        {% for message in messages %}
+        <p>{{message}}</p>
+        {%endfor%}
+
+        <button type="submit" form="login-form" value="Submit">register</button>
+        <p class="message"><a href="/">Login</a></p>
+      </form>
+    </div>
+  </div>
