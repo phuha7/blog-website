@@ -84,6 +84,10 @@ def post(request, username, id):
     }
     return render(request, "post.html", content)
 
+def blogs(request):
+    usernames = User.objects.values_list('username', flat=True)
+    return render(request, "blogs.html", {'usernames': usernames})
+
 def logout(request):
     auth.logout(request)
     messages.info(request, "You are logged out.")
