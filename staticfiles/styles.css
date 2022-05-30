@@ -4,6 +4,7 @@
 .navbar {
   padding: 2% 5%;
 }
+
 /* login and registration */
 
 .background-body {
@@ -139,8 +140,8 @@ body {
 
 .card {
   background-color: white;
-  padding: 20px;
-  margin: 20px 20px;
+  padding: 20px 5%;
+  margin: 20px 10%;
 }
 
 .row:after {
@@ -174,6 +175,19 @@ a {
 
 .profile-link {
   float: right;
+}
+
+.homepage-body {
+  background-image: url("https://images.unsplash.com/photo-1517495306984-f84210f9daa8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80");
+  background-position: center;
+}
+
+.explore-body {
+  height: 75vh;
+}
+
+.delete-body, .edit-body {
+  text-align: center;
 }
 
 footer {

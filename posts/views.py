@@ -1,11 +1,11 @@
-from email import message
-from pdb import post_mortem
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
+from django.urls import reverse_lazy
 from . models import Post
 from .forms import PostingForm, RegistrationForm
 from django.contrib.auth.decorators import login_required
+from django.views.generic import UpdateView, DeleteView
 
 # Create your views here.
 def index(request):
@@ -92,3 +92,18 @@ def logout(request):
     auth.logout(request)
     messages.info(request, "You are logged out.")
     return redirect("/")
+
+class UpdatePostView(UpdateView):
+    model = Post
+    template_name = 'edit.html'
+    #fields = ['title', 'body']
+    form_class = PostingForm
+
+    def get_success_url(self) -> str:
+        return reverse_lazy('homepage')
+
+class DeletePostView(DeleteView):
+    model = Post
+    template_name = 'delete.html'
+    def get_success_url(self) -> str:
+        return reverse_lazy('homepage')
